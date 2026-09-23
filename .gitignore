@@ -1,3 +1,8 @@
 BLHeli_S/build
 BLHeli_S/*.LST
 BLHeli_S/*.bak
+src/build/
+
+# Local-only Keil installer and license for the Docker builder image.
+tools/silabs/
+docker/keil.lic

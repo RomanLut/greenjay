@@ -25,3 +25,4 @@
 *.inc text eol=crlf
 *.bat text eol=crlf
 
+*.sh text eol=lf

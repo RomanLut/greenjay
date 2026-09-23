@@ -62,7 +62,7 @@ $(OUTPUT_DIR)/GJ_$(1)_$(2)_$(3)_$(4)_$(REVISION).OBJ : $(ASM_SRC) $(ASM_INC)
 	$(eval _MCU_48MHZ   := $(subst L,0,$(subst H,1,$(2))))
 	$(eval _FETON_DELAY := $(3))
 	$(eval _USE_PHASES  := $(4))
-	$(eval _LOG         := $(LOG_DIR)/GJ_$(1)_$(2)_$(3)_$(REVISION).log)
+	$(eval _LOG         := $(LOG_DIR)/GJ_$(1)_$(2)_$(3)_$(4)_$(REVISION).log)
 	@mkdir -p $(OUTPUT_DIR)
 	@mkdir -p $(LOG_DIR)
 	@echo "AX51 : $$@"
@@ -72,6 +72,7 @@ $(OUTPUT_DIR)/GJ_$(1)_$(2)_$(3)_$(4)_$(REVISION).OBJ : $(ASM_SRC) $(ASM_INC)
 		"DEFINE(FETON_DELAY=$(_FETON_DELAY)) "\
 		"DEFINE(USE_PHASES=$(_USE_PHASES)) "\
 		"OBJECT($$@) "\
+		"PRINT($$(@:.OBJ=.LST)) "\
 		"$(AX51_FLAGS)" >> $(_LOG) 2>&1; test $$$$? -lt 2 || tail $(_LOG)
 
 endef
