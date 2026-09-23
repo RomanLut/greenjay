@@ -1,3 +1,8 @@
+**Note: This fork fixes one specific issue: the high-side MOSFET driver requires periodic pulses to keep the gate voltage charged. Even at 100% throttle, these pulses must still be generated; otherwise, the motor will stop.**
+
+**This fork adds 2 µs pulses at 100% throttle, including in bidirectional modes.**
+
+-----------------------
 This is my fork of the Greenjay firmware. [Greenjay (link to parent repo)](https://github.com/bird-sanctuary/greenjay/) firmware is a derivative of [BLHeli_S](https://github.com/bitdump/BLHeli) and [Bluejay](https://github.com/bird-sanctuary/bluejay/) firmware. It runs on small ESCs to drive electric motors.
 
 Brushless motor ESCs (electronic speed controllers) that are running BLHeli_S firmware can be converted to run brushed motors. This is great because these ESCs are small, are cheap, they can handle a lot of current, and they can be easily replaced if they break. Here are some examples size comparisons, along with cost and capability:
